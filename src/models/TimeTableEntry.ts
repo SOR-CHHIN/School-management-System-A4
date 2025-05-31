@@ -1,4 +1,4 @@
-export class ScheduleEntry {
+export class TimetableEntry {
     constructor(
         public dayOfWeek: string,
         public time: string,
@@ -7,9 +7,5 @@ export class ScheduleEntry {
         this.dayOfWeek = dayOfWeek;
         this.time = time;
         this.room = room;
-    }
-
-    getScheduleEntry(): string {
-        return `${this.dayOfWeek} at ${this.time} in ${this.room}`;
     }
 }
