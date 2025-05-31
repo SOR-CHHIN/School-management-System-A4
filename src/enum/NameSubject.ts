@@ -1,0 +1,21 @@
+export enum NameSubjects {
+    Math = "Math",
+    Science = "Science",
+    History = "History",
+    Literature = "Literature",
+    Geography = "Geography",
+    Art = "Art",
+    Music = "Music",
+    PhysicalEducation = "Physical Education",
+    ComputerScience = "Computer Science",
+    ForeignLanguage = "Foreign Language",
+    Economics = "Economics",
+    Psychology = "Psychology",
+    Sociology = "Sociology",
+    Philosophy = "Philosophy",
+    Business = "Business",
+    HealthEducation = "Health Education",
+    EnvironmentalScience = "Environmental Science",
+    Engineering = "Engineering",
+    PoliticalScience = "Political Science"
+}
