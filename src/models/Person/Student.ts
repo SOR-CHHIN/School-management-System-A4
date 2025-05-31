@@ -1,14 +1,14 @@
-// import { Assignment } from "./Assignment";
-// import { Exam } from "./Exam";
-// import { Feedback } from "./Feedback";
+import { Assignment } from "../Assignment";
+import { Exam } from "../Exam";
+import { Feedback } from "../Feedback";
 import { Person } from "./Person";
-// import { Submission } from "./Submission";
-// import { Timetable } from "./TimeTable";
+import { Submission } from "../Submission";
+import { Timetable } from "../TimeTable";
 
 export class Student extends Person {
-    // private viewedTimetables: Timetable[] = [];
-    // private submittedAssignments: Submission[] = [];
-    // private feedbacks: Feedback[] = [];
+    private viewedTimetables: Timetable[] = [];
+    private submittedAssignments: Submission[] = [];
+    private feedbacks: Feedback[] = [];
 
     constructor(
         id_number: string,
