@@ -8,4 +8,8 @@ export class TimetableEntry {
         this.time = time;
         this.room = room;
     }
+
+    // getTimetableEntry(): string {
+    //     return `${this.dayOfWeek} at ${this.time} in ${this.room}`;
+    // }
 }

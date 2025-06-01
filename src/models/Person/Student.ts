@@ -21,13 +21,13 @@ export class Student extends Person {
     }
 
     // // User Story 1: As a student, I want to view my class timetable
-    // getStudentTimetable(): Timetable[] {
-    //     return this.viewedTimetables;
-    // }
+    getStudentTimetable(): Timetable[] {
+        return this.viewedTimetables;
+    }
 
-    // viewTimetable(timetable: Timetable): void {
-    //     this.viewedTimetables.push(timetable);
-    // }
+    viewTimetable(timetable: Timetable): void {
+        this.viewedTimetables.push(timetable);
+    }
 
     // // User Story 3: As a student, I want to submit my assignments and see my grades
     // submitAssignment(assignment: Assignment, files: string[]): void {

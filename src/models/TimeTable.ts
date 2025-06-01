@@ -9,4 +9,11 @@ export class Timetable {
         this.timetable = timetable;
         this.entries = entries;
     }
+
+      display(): void {
+    console.log("Class Timetable:");
+    this.entries.forEach((entry) => {
+      console.log(`${entry.dayOfWeek} - ${entry.time} - ${TimetableEntry} - Room: ${entry.room}`);
+    });
+  }
 }

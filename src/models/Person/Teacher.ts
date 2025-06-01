@@ -1,3 +1,4 @@
+import { NameSubjects } from "../../enum/NameSubject";
 import { Assignment } from "../Assignment";
 import { Material } from "../Material";
 import { Subject } from "../Subject";
@@ -20,7 +21,7 @@ export class Teacher extends Person {
 
     // User Story 2: As a teacher, I want to upload study materials and assignments for students
     uploadMaterial(subject: Subject, material: Material): void {
-        console.log(`Uploading material ${material.title} for subject ${subject.name}`);
+        console.log(`Uploading material ${material.title} for subject ${NameSubjects.Engineering}`);
         this.uploadedMaterials.push(material);
     }
 
