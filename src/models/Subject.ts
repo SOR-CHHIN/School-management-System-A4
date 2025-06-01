@@ -1,5 +1,5 @@
 export class Subject {
-    static MATH: string;
+    // static MATH: string;
     constructor(
         public name: string,
         public code: string,

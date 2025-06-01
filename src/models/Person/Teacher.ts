@@ -1,41 +1,40 @@
+import { GradeLevels } from "../../enum/GradeLevel";
 import { NameSubjects } from "../../enum/NameSubject";
 import { Assignment } from "../Assignment";
+import { Grade } from "../Grade";
 import { Material } from "../Material";
-import { Subject } from "../Subject";
 import { Person } from "./Person";
-// import { Subject } from "./Subject";
 
 export class Teacher extends Person {
-    private uploadedMaterials: Material[] = [];
-    private gradedAssignments: Assignment[] = [];
-    name: any;
+  public materials: Material[] = [];
+  public assignments: Assignment[] = [];
 
-    constructor(
-        id_number: string,
-        name: string,
-        email: string,
-        public department: string
-    ) {
-        super(id_number, name, email);
-    }
+  constructor(
+    id_number: string,
+    name: string,
+    email: string,
+    public department: string
+  ) {
+    super(id_number, name, email);
+  }
 
-    // User Story 2: As a teacher, I want to upload study materials and assignments for students
-    uploadMaterial(subject: Subject, material: Material): void {
-        console.log(`Uploading material ${material.title} for subject ${NameSubjects.Engineering}`);
-        this.uploadedMaterials.push(material);
-    }
+  // Upload study material (User Story 2)
+  uploadMaterial(material: Material): void {
+    this.materials.push(material);
+    console.log(`${this.name} uploaded material: ${material.title} to the subject:${NameSubjects.ComputerScience} ,On: ${new Date().toLocaleDateString()} Time: ${new Date().toLocaleTimeString()} `);
+  }
 
-    gradeAssignment(assignment: Assignment, grade: number, feedback: string): void {
-        this.gradedAssignments.push(assignment);
-        // Update the submission with grade and feedback (logic to be linked with Submission)
-        console.log(`Graded assignment ${assignment.title} with score ${grade} and feedback: ${feedback}`);
-    }
+  // Upload assignment (User Story 2)
+  uploadAssignment(assignment: Assignment): void {
+    this.assignments.push(assignment);
+    console.log(`${this.name} uploaded assignment: ${assignment.title},  deadline on: ${assignment.dueDate.toLocaleDateString()} for Students in ${GradeLevels.Year2},Upload on:  ${new Date().toLocaleDateString()},Time: ${new Date().toLocaleTimeString()} , for Students in ${GradeLevels.Year2} at PNC University`);
+  }
 
-    getUploadedMaterials(): Material[] {
-        return this.uploadedMaterials;
-    }
+  getUploadedMaterials(): Material[] {
+    return this.materials;
+  }
 
-    getGradedAssignments(): Assignment[] {
-        return this.gradedAssignments;
-    }
+  getAssignments(): Assignment[] {
+    return this.assignments;
+  }
 }

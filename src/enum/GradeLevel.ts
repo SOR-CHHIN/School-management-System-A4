@@ -5,5 +5,7 @@ export enum GradeLevels {
   Grade9 = "Grade 9",
   Grade10 = "Grade 10",
   Grade11 = "Grade 11",
-  Grade12 = "Grade 12"
+  Grade12 = "Grade 12",
+  Year1 = "Year1",
+  Year2 = "Year2",
 }
