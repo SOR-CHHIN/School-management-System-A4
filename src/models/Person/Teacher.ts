@@ -27,7 +27,7 @@ export class Teacher extends Person {
   // Upload assignment (User Story 2)
   uploadAssignment(assignment: Assignment): void {
     this.assignments.push(assignment);
-    console.log(`${this.name} uploaded assignment: ${assignment.title},  deadline on: ${assignment.dueDate.toLocaleDateString()} for Students in ${GradeLevels.Year2},Upload on:  ${new Date().toLocaleDateString()},Time: ${new Date().toLocaleTimeString()} , for Students in ${GradeLevels.Year2} at PNC University`);
+    console.log(`${this.name} uploaded assignment: ${assignment.title},  deadline on: ${assignment.dueDate.toLocaleDateString()},Upload on:  ${new Date().toLocaleDateString()},Time: ${new Date().toLocaleTimeString()} for Students in ${GradeLevels.Year2} at PNC University`);
   }
 
   getUploadedMaterials(): Material[] {

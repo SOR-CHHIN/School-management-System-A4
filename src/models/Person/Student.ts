@@ -35,7 +35,7 @@ export class Student extends Person {
             `${assignment.title} Submission`,
             new Date("2025-05-30T08:42:00+07:00"),
             files,
-            0,
+            100,
             "Pending"
         );
         this.submittedAssignments.push(submission);
