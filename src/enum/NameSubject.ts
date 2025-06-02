@@ -17,5 +17,6 @@ export enum NameSubjects {
     HealthEducation = "Health Education",
     EnvironmentalScience = "Environmental Science",
     Engineering = "Engineering",
-    PoliticalScience = "Political Science"
+    PoliticalScience = "Political Science",
+    Mathematics = "Mathematics"
 }
