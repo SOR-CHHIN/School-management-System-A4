@@ -41,8 +41,6 @@ teacher.uploadAssignment( assignment);
 
 
 // User Story 3: Student submits an assignment and views grades
-// const assignment = new Assignment("A001", "Algebra Quiz", "Solve 10 algebra problems", new Date("2025-06-05T23:59:00+07:00"), 100);
-
 student.submitAssignment(assignment, ["answers.pdf"]);
 // Get grades for the student
 const grades = student.getGrades();
@@ -61,5 +59,5 @@ const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);
 console.log(`Student ${student.name}'s exam results:`, examResults);
 
 // User Story 6: Student gives feedback
-const feedback = new Feedback("Great class!", 5, "I learned a lot about algebra.", new Date("2025-05-30T08:42:00+07:00"));
+const feedback = new Feedback("Great class!", 5, "I learned a lot about OOP.", new Date("2025-05-30T08:42:00+07:00"));
 student.giveFeedback(feedback);
