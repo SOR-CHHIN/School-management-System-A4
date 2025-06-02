@@ -51,14 +51,14 @@ export class Student extends Person {
         }));
     }
 
-    // // User Story 5: As a student, I want to view my exam schedule and results
-    // viewExamSchedule(exams: Exam[]): Exam[] {
-    //     return exams; // In a real system, this would filter exams relevant to the student
-    // }
+    // User Story 5: As a student, I want to view my exam schedule and results
+    viewExamSchedule(exams: Exam[]): Exam[] {
+        return exams; // In a real system, this would filter exams relevant to the student
+    }
 
-    // getExamResults(exams: Exam[], results: { examId: number, score: number }[]): { examId: number, score: number }[] {
-    //     return results.filter(result => exams.some(exam => exam.examId === result.examId));
-    // }
+    getExamResults(exams: Exam[], results: { examId: number, score: number }[]): { examId: number, score: number }[] {
+        return results.filter(result => exams.some(exam => exam.examId === result.examId));
+    }
 
     // // User Story 6: As a student, I want to give feedback and ratings for subjects and teachers
     // giveFeedback(feedback: Feedback): void {

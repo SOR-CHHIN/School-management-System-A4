@@ -20,7 +20,7 @@ const admin = new Admin("A001", "Rady Y", "rady.admin@school.com");
 const teacher = new Teacher("T001", "Yon Yen", "yenyon@school.com", "Mathematics");
 
 // Create a Student
-const student = new Student("S001", "Sor Chhin", "sorchhin@school.com", new Date("2024-09-01"), "A");
+const student = new Student("S001", "phanhapich", "phanhapich@school.com", new Date("2024-09-01"), "A");
 
 // User Story 4: Admin assigns subjects and teachers to students
 // const mathSubject = new Subject(Subject.MATH, "MATH101", false, "Room 101", new Date("2025-06-02T09:00:00+07:00"));
@@ -53,12 +53,12 @@ const grades = student.getGrades();
 
 console.log(`Student ${student.name}'s grades:`, grades);
 
-// // User Story 5: Student views exam schedule and results
-// const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room 101");
-// const exams = student.viewExamSchedule([exam]);
-// console.log(`Student ${student.name}'s exam schedule: Exam ID ${exams[0].examId} on ${exams[0].examDate.toISOString()}`);
-// const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);
-// console.log(`Student ${student.name}'s exam results:`, examResults);
+// User Story 5: Student views exam schedule and results
+const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room 101");
+const exams = student.viewExamSchedule([exam]);
+console.log(`Student ${student.name}'s exam schedule: Exam ID ${exams[0].examId} on ${exams[0].examDate.toISOString()}`);
+const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);
+console.log(`Student ${student.name}'s exam results:`, examResults);
 
 // // User Story 6: Student gives feedback
 // const feedback = new Feedback("Great class!", 5, "I learned a lot about algebra.", new Date("2025-05-30T08:42:00+07:00"));
