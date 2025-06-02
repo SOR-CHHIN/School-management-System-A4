@@ -60,6 +60,6 @@ console.log(`Student ${student.name}'s exam schedule: Exam ID ${exams[0].examId}
 const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);
 console.log(`Student ${student.name}'s exam results:`, examResults);
 
-// // User Story 6: Student gives feedback
-// const feedback = new Feedback("Great class!", 5, "I learned a lot about algebra.", new Date("2025-05-30T08:42:00+07:00"));
-// student.giveFeedback(feedback);
+// User Story 6: Student gives feedback
+const feedback = new Feedback("Great class!", 5, "I learned a lot about algebra.", new Date("2025-05-30T08:42:00+07:00"));
+student.giveFeedback(feedback);

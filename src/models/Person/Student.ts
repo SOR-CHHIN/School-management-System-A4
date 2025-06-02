@@ -60,17 +60,17 @@ export class Student extends Person {
         return results.filter(result => exams.some(exam => exam.examId === result.examId));
     }
 
-    // // User Story 6: As a student, I want to give feedback and ratings for subjects and teachers
-    // giveFeedback(feedback: Feedback): void {
-    //     this.feedbacks.push(feedback);
-    //     console.log(`Student ${this.name} gave feedback: ${feedback.feedback}`);
-    // }
+    // User Story 6: As a student, I want to give feedback and ratings for subjects and teachers
+    giveFeedback(feedback: Feedback): void {
+        this.feedbacks.push(feedback);
+        console.log(`Student ${this.name} gave feedback: ${feedback.feedback}`);
+    }
 
-    // getSubmittedAssignments(): Submission[] {
-    //     return this.submittedAssignments;
-    // }
+    getSubmittedAssignments(): Submission[] {
+        return this.submittedAssignments;
+    }
 
-    // getViewedTimetables(): Timetable[] {
-    //     return this.viewedTimetables;
-    // }
+    getViewedTimetables(): Timetable[] {
+        return this.viewedTimetables;
+    }
 }
