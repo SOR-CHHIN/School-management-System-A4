@@ -22,9 +22,7 @@ const teacher = new Teacher("T001", "Yon Yen", "yenyon@school.com", "Mathematics
 // Create a Student
 const student = new Student("S001", "rin phanhapich", "rinphanhapich@school.com", new Date("2025-02-06"), "A");
 
-// User Story 4: Admin assigns subjects and teachers to students
-// const mathSubject = new Subject(Subject.MATH, "MATH101", false, "Room 101", new Date("2025-06-02T09:00:00+07:00"));
-// admin.assignTeacherToSubject(teacher, mathSubject, student);
+
 // // User Story 1: Student views their timetable
 const timetableEntry = new TimetableEntry("Monday", "07:30-09:00", "Room B22");
 const timetable = new Timetable(NameSubjects.ComputerScience, [timetableEntry]);
@@ -45,13 +43,15 @@ teacher.uploadAssignment( assignment);
 // User Story 3: Student submits an assignment and views grades
 // const assignment = new Assignment("A001", "Algebra Quiz", "Solve 10 algebra problems", new Date("2025-06-05T23:59:00+07:00"), 100);
 
-
-
 student.submitAssignment(assignment, ["answers.pdf"]);
 // Get grades for the student
 const grades = student.getGrades();
 
 console.log(`Student ${student.name}'s grades:`, grades);
+
+// User Story 4: Admin assigns subjects and teachers to students
+const mathSubject = new Subject(NameSubjects.ComputerScience, "MATH101", false, "Room 101", new Date("2025-06-02T09:00:00+07:00"));
+admin.assignTeacherToSubject(teacher, mathSubject, student);
 
 // User Story 5: Student views exam schedule and results
 const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room 101");
