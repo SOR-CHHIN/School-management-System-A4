@@ -29,27 +29,27 @@ export class Student extends Person {
         this.viewedTimetables.push(timetable);
     }
 
-    // // User Story 3: As a student, I want to submit my assignments and see my grades
-    // submitAssignment(assignment: Assignment, files: string[]): void {
-    //     const submission = new Submission(
-    //         `${assignment.title} Submission`,
-    //         new Date("2025-05-30T08:42:00+07:00"),
-    //         files,
-    //         0,
-    //         "Pending"
-    //     );
-    //     this.submittedAssignments.push(submission);
-    //     console.log(`Student ${this.name} submitted assignment: ${assignment.title}`);
-    // }
+    // User Story 3: As a student, I want to submit my assignments and see my grades
+    submitAssignment(assignment: Assignment, files: string[]): void {
+        const submission = new Submission(
+            `${assignment.title} Submission`,
+            new Date("2025-05-30T08:42:00+07:00"),
+            files,
+            0,
+            "Pending"
+        );
+        this.submittedAssignments.push(submission);
+        console.log(`Student ${this.name} submitted assignment: ${assignment.title}`);
+    }
 
-    // // User Story 3: Get grades for the student
-    // getGrades(): { assignment: string, grade: number, feedback: string }[] {
-    //     return this.submittedAssignments.map(submission => ({
-    //         assignment: submission.submission,
-    //         grade: submission.grade,
-    //         feedback: submission.feedback
-    //     }));
-    // }
+    // User Story 3: Get grades for the student
+    getGrades(): { assignment: string, grade: number, feedback: string }[] {
+        return this.submittedAssignments.map(submission => ({
+            assignment: submission.submission,
+            grade: submission.grade,
+            feedback: submission.feedback
+        }));
+    }
 
     // // User Story 5: As a student, I want to view my exam schedule and results
     // viewExamSchedule(exams: Exam[]): Exam[] {

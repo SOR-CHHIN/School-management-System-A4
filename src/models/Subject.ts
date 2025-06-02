@@ -1,3 +1,5 @@
+import { NameSubjects } from "../enum/NameSubject";
+import { Student } from "./Person/Student";
 export class Subject {
     // static MATH: string;
     constructor(

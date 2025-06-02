@@ -1,10 +1,12 @@
+import { LetterGrade } from "../enum/LetterGrade";
+import { NameSubjects } from "../enum/NameSubject";
 import { Student } from "./Person/Student";
 import { Subject } from "./Subject";
 
-export class Grade {
+export class Grade  {
     constructor(
-        private finalScore: GLfloat | undefined, 
-        private letterGrade: string,
+        public finalScore: number, 
+        public letterGrade: string,
         public subjects: Subject[],
         public students: Student[]
     ){

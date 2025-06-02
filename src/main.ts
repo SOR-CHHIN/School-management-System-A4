@@ -9,6 +9,9 @@ import { Teacher } from "./models/Person/Teacher";
 import { Timetable } from "./models/TimeTable";
 import { TimetableEntry } from "./models/TimeTableEntry";
 import { NameSubjects } from "./enum/NameSubject";
+import { Grade } from "./models/Grade";
+import { LetterGrade } from "./enum/LetterGrade";
+
 
 // Create an Admin
 const admin = new Admin("A001", "Rady Y", "rady.admin@school.com");
@@ -39,12 +42,16 @@ teacher.uploadAssignment( assignment);
 
 
 
-// // User Story 3: Student submits an assignment and views grades
+// User Story 3: Student submits an assignment and views grades
 // const assignment = new Assignment("A001", "Algebra Quiz", "Solve 10 algebra problems", new Date("2025-06-05T23:59:00+07:00"), 100);
-// student.submitAssignment(assignment, ["answers.pdf"]);
-// teacher.gradeAssignment(assignment, 85, "Great work!");
-// const grades = student.getGrades();
-// console.log(`Student ${student.name}'s grades:`, grades);
+
+
+
+student.submitAssignment(assignment, ["answers.pdf"]);
+// Get grades for the student
+const grades = student.getGrades();
+
+console.log(`Student ${student.name}'s grades:`, grades);
 
 // // User Story 5: Student views exam schedule and results
 // const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room 101");
