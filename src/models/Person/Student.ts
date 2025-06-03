@@ -36,7 +36,7 @@ export class Student extends Person {
             new Date("2025-05-30T08:42:00+07:00"),
             files,
             100,
-            "Pending"
+            "good"
         );
         this.submittedAssignments.push(submission);
         console.log(`Student ${this.name} submitted assignment: ${assignment.title}`);
