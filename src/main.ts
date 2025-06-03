@@ -20,7 +20,7 @@ const admin = new Admin("A001", "Rady Y", "rady.admin@school.com");
 const teacher = new Teacher("T001", "Yon Yen", "yenyon@school.com", "Mathematics");
 
 // Create a Student
-const student = new Student("S001", "rin phanhapich", "rinphanhapich@school.com", new Date("2025-02-06"), "A");
+const student = new Student("S001", "phanhapich rin", "phanhapich.rin@school.com", new Date("2025-02-06"), "A");
 
 
 // // User Story 1: Student views their timetable
@@ -47,8 +47,8 @@ const grades = student.getGrades();
 
 console.log(`Student ${student.name}'s grades:`, grades);
 
-// User Story 4: Admin assigns subjects and teachers to students
-const mathSubject = new Subject(NameSubjects.ComputerScience, "MATH101", false, "Room 101", new Date("2025-06-02T09:00:00+07:00"));
+// User Story 4: Admin assigns subjects and teachers to student
+const mathSubject = new Subject(NameSubjects.ComputerScience, "MATH103", false, "Room 103", new Date("2025-06-02T09:00:00+07:00"));
 admin.assignTeacherToSubject(teacher, mathSubject, student);
 
 // User Story 5: Student views exam schedule and results
