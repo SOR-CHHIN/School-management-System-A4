@@ -11,6 +11,7 @@ import { TimetableEntry } from "./models/TimeTableEntry";
 import { NameSubjects } from "./enum/NameSubject";
 import { Grade } from "./models/Grade";
 import { LetterGrade } from "./enum/LetterGrade";
+import { Classroom } from "./models/Classroom";
 
 
 // Create an Admin
@@ -28,13 +29,13 @@ const timetableEntry = new TimetableEntry("Monday", "07:30-09:00", "Room B22");
 const timetable = new Timetable(NameSubjects.ComputerScience, [timetableEntry]);
 student.viewTimetable(timetable);
 const studentTimetable = student.getStudentTimetable();
-console.log(`The timetable : Subject: ${studentTimetable[0].timetable} by teacher ${teacher.name} on ${timetableEntry.dayOfWeek} at ${timetableEntry.time} in ${timetableEntry.room}`);
+console.log(`1. The timetable : Subject: ${studentTimetable[0].timetable} by teacher ${teacher.name} on ${timetableEntry.dayOfWeek} at ${timetableEntry.time} in ${timetableEntry.room} student at  class ${student.currentGrade}.\n`);
 
 // User Story 2: Teacher uploads study materials
-const material = new Material("OOP: C2.S2.Practices.PDF", new Date("2025-05-30T08:42:00+07:00"));
+const material = new Material("             OOP: C2.S2.Practices.PDF", new Date("2025-05-30T08:42:00+07:00"));
 teacher.uploadMaterial(material);
 // Teacher uploads an assignment
-const assignment = new Assignment("A001", "OOP Quiz", "Solve 10 OOP problems", new Date("2025-06-05T23:59:00+07:00"), 100);
+const assignment = new Assignment("3. A001", "OOP Quiz", "Solve 10 OOP problems", new Date("2025-06-05T23:59:00+07:00"), 100);
 teacher.uploadAssignment( assignment);
 
 
@@ -49,10 +50,11 @@ console.log(`Student ${student.name}'s grades:`, grades);
 
 // User Story 4: Admin assigns subjects and teachers to students
 const mathSubject = new Subject(NameSubjects.ComputerScience, "MATH101", false, "Room 101", new Date("2025-06-02T09:00:00+07:00"));
-admin.assignTeacherToSubject(teacher, mathSubject, student);
+const classroom = new Classroom("Room B12", teacher, mathSubject, [student]);
+admin.assignTeacherToSubject(teacher, mathSubject,classroom);
 
 // User Story 5: Student views exam schedule and results
-const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room 101");
+const exam = new Exam(1, new Date("2025-06-10T09:00:00+07:00"), "Room B12", "OOP Final Exam");
 const exams = student.viewExamSchedule([exam]);
 console.log(`Student ${student.name}'s exam schedule: Exam ID ${exams[0].examId} on ${exams[0].examDate.toISOString()}`);
 const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);

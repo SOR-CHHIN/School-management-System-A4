@@ -11,7 +11,7 @@ export class Timetable {
     }
 
       display(): void {
-    console.log("Class Timetable:");
+    console.log(" Class Timetable:");
     this.entries.forEach((entry) => {
       console.log(`${entry.dayOfWeek} - ${entry.time} - ${TimetableEntry} - Room: ${entry.room}`);
     });

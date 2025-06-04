@@ -1,13 +1,17 @@
 import { GradeLevels } from "../../enum/GradeLevel";
 import { NameSubjects } from "../../enum/NameSubject";
 import { Assignment } from "../Assignment";
+import { Classroom } from "../Classroom";
 import { Grade } from "../Grade";
 import { Material } from "../Material";
 import { Person } from "./Person";
+export { Subject } from "../Subject";
+export {Student} from "./Student";
 
 export class Teacher extends Person {
   public materials: Material[] = [];
   public assignments: Assignment[] = [];
+  public classrooms: Classroom[] = [];
 
   constructor(
     id_number: string,
@@ -21,13 +25,22 @@ export class Teacher extends Person {
   // Upload study material (User Story 2)
   uploadMaterial(material: Material): void {
     this.materials.push(material);
-    console.log(`${this.name} uploaded material: ${material.title} to the subject:${NameSubjects.ComputerScience} ,On: ${new Date().toLocaleDateString()} Time: ${new Date().toLocaleTimeString()} `);
+    console.log(`2.Teacher ${this.name} uploaded material:\n ${material.title} 
+              Subject:${NameSubjects.ComputerScience}    
+              On: ${new Date().toLocaleDateString()}  
+              Time: ${new Date().toLocaleTimeString()} 
+                `);
   }
 
   // Upload assignment (User Story 2)
   uploadAssignment(assignment: Assignment): void {
     this.assignments.push(assignment);
-    console.log(`${this.name} uploaded assignment: ${assignment.title},  deadline on: ${assignment.dueDate.toLocaleDateString()},Upload on:  ${new Date().toLocaleDateString()},Time: ${new Date().toLocaleTimeString()} for Students in ${GradeLevels.Year2} at PNC University`);
+    console.log(`3. Teacher ${this.name} uploaded assignment:
+      Assignmet: ${assignment.title}
+      Deadline on: ${assignment.dueDate.toLocaleDateString()}
+      Upload on:  ${new Date().toLocaleDateString()}
+      Time: ${new Date().toLocaleTimeString()} 
+      Students:${GradeLevels.Year2} at PNC University\n`);
   }
 
   getUploadedMaterials(): Material[] {

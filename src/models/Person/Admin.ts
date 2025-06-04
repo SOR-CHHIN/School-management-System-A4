@@ -4,6 +4,7 @@ import { Subject } from "../Subject";
 import { Teacher } from "./Teacher";
 import { NameSubjects } from "../../enum/NameSubject";
 import { TimetableEntry } from "../TimeTableEntry";
+import { Classroom } from "../Classroom";
 
 
 export class Admin extends Person {
@@ -19,10 +20,10 @@ export class Admin extends Person {
     }
 
     // User Story 4: As an admin, I want to assign subjects and teachers to students
-    assignTeacherToSubject(teacher: Teacher, subject: Subject, student: Student): void {
-        console.log(`Admin ${this.name} assigned teacher ${teacher.name} to subject ${NameSubjects.ComputerScience} for student class ${student.name}`);
+    assignTeacherToSubject(teacher: Teacher, subject: Subject,classroom:Classroom): void {
+        console.log(`Admin ${this.name} assigned teacher ${teacher.name} to subject ${NameSubjects.ComputerScience} for student class ${classroom.room}`);
         this.assignTeacher(teacher);
-        this.manageEnrollment(student);
+        // this.manageEnrollment(); // Assuming the first student in the classroom for simplicity
         // In a real system, this would link the subject to the student and teacher
     }
 
