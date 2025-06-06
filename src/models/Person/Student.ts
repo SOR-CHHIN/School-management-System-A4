@@ -84,9 +84,9 @@ export class Student extends Person {
     );
   }
 
-  giveFeedback(feedback: Feedback): void {
+  giveFeedback(feedback: Feedback, teacher:Teacher): void {
     this.feedbacks.push(feedback);
-    console.log(`👩🏻‍🎓  Student ${this.name} gave feedback: ${feedback.feedback} from ${ this.teachers}`);
+    console.log(`👩🏻‍🎓  Student ${this.name} gave feedback: ${feedback.feedback} by ${teacher.name}`);
   }
 
   public getSubmittedAssignments(): Submission[] {

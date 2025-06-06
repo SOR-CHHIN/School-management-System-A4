@@ -42,4 +42,9 @@ export class Admin extends Person {
     getManagedEnrollments(): Student[] {
         return this.managedEnrollments;
     }
+    // Additional methods for admin functionalities can be added here
+    public getDetails(): string {
+        return `Admin ${this.name} (ID: ${this.id_number}, Email: ${this.email})`;
+    }
+    
 }

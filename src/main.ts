@@ -24,7 +24,8 @@ import { NameSubjects } from "./enum/NameSubject";
     "contact@techhigh.edu",
     "+855-123-4567"
   );
-
+  console.log(`🏫 School created: ${mySchool.name} at ${mySchool.address}`);
+  
   // Create admin
   const admin = new Admin("A001", "Rady Y", "rady.admin@school.com");
   mySchool.addAdmin(admin);
@@ -124,18 +125,25 @@ console.log(`================ Admin Assigns Teacher to Subject =================
 
   // User Story 6: Student provides feedback
   const feedback = new Feedback(
-    "Great class!",
+    "Great class you should know about OOP concepts and practices",
     5,
-    "I learned a lot about OOP.",
+    "I learned a lot about OOP. I appreciate the teacher's effort",
     new Date("2025-05-30T08:42:00+07:00"),
     // 'YEN YON' // Teacher's name
     
   );
-  student.giveFeedback(feedback);
+  student.giveFeedback(feedback, teacher);
   console.log(
-    `👩🏻‍🎓  Student ${student.name} provided feedback: ${feedback.comment} ` +
+    
+    `👩🏻‍🎓  Student ${student.name} provided feedback: ${feedback.comment} `,
     `with rating ${feedback.rating}` 
   );
+
+  // // User Story 7: Admin views all students and teachers
+  // console.log(`================ Admin Views Students and Teachers =================\n`);
+  // const allStudents = mySchool.getStudents();
+  // const allTeachers = mySchool.getTeachers();
+  // console.log(`👩🏻‍🏫 Admin ${admin.name} is viewing all students and teachers:`);
 
 
   
