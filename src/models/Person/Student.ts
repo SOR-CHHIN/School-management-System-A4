@@ -4,11 +4,13 @@ import { Feedback } from "../Feedback";
 import { Person } from "./Person";
 import { Submission } from "../Submission";
 import { Timetable } from "../TimeTable";
+import { Teacher } from "./Teacher";
 
 export class Student extends Person {
- public viewedTimetables: Timetable[] = [];
- public submittedAssignments: Submission[] = [];
- public feedbacks: Feedback[] = [];
+  public viewedTimetables: Timetable[] = [];
+  public submittedAssignments: Submission[] = [];
+  public feedbacks: Feedback[] = [];
+  public teachers: Teacher[] = [];
 
   constructor(
     idNumber: string,
@@ -21,7 +23,7 @@ export class Student extends Person {
   }
 
   // User Story 3: Submit assignments
-  public submitAssignment(assignment: Assignment, files: string[], submissionDate: Date = new Date()): void {
+  submitAssignment(assignment: Assignment, files: string[], submissionDate: Date = new Date()): void {
     if (!assignment || !files.length) {
       throw new Error("Assignment and at least one file must be provided.");
     }
@@ -36,11 +38,11 @@ export class Student extends Person {
     this.submittedAssignments.push(submission);
 
     console.log(
-      `👩🏻‍🎓 Student ${this.name}:\n` ,
-      `  Grade Level: ${this.currentGrade}\n` ,
-      `  Submitted assignment: ${assignment.title}\n` ,
-      `  Files: ${files.join(", ")}\n` +
-      `  On: ${submission.submissionDate.toLocaleDateString()} ` ,
+      `👩🏻‍🎓 Student ${this.name}:\n`,
+      `  Grade Level: ${this.currentGrade}\n`,
+      `  Submitted assignment: ${assignment.title}\n`,
+      `  Files: ${files.join(", ")}\n`,
+      `  On: ${submission.submissionDate.toLocaleDateString()} `,
       `at ${submission.submissionDate.toLocaleTimeString()} \n`
     );
   }
@@ -51,7 +53,7 @@ export class Student extends Person {
       return `No grades available for ${this.name}.`;
     }
 
-    const gradesOutput = this.submittedAssignments.map((submission) => 
+    const gradesOutput = this.submittedAssignments.map((submission) =>
       `- Assignment: ${submission.submission}\n` +
       `  Grade: ${submission.score}\n` +
       `  Feedback: ${submission.feedback || "No feedback provided yet"}`
@@ -61,19 +63,19 @@ export class Student extends Person {
   }
 
   // Other methods (unchanged)
-  public viewTimetable(timetable: Timetable): void {
+  viewTimetable(timetable: Timetable): void {
     this.viewedTimetables.push(timetable);
   }
 
-  public getTimetables(): Timetable[] {
+  getTimetables(): Timetable[] {
     return this.viewedTimetables;
   }
 
-  public viewExamSchedule(exams: Exam[]): Exam[] {
+  viewExamSchedule(exams: Exam[]): Exam[] {
     return exams;
   }
 
-  public getExamResults(
+  getExamResults(
     exams: Exam[],
     results: { examId: number; score: number }[]
   ): { examId: number; score: number }[] {
@@ -82,9 +84,9 @@ export class Student extends Person {
     );
   }
 
-  public giveFeedback(feedback: Feedback): void {
+  giveFeedback(feedback: Feedback): void {
     this.feedbacks.push(feedback);
-    console.log(`Student ${this.name} gave feedback: ${feedback.feedback}`);
+    console.log(`👩🏻‍🎓  Student ${this.name} gave feedback: ${feedback.feedback} from ${ this.teachers}`);
   }
 
   public getSubmittedAssignments(): Submission[] {

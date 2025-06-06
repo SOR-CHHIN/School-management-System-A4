@@ -1,5 +1,4 @@
-// school_management.ts
-// Core imports for models and enums
+
 import { Admin } from "./models/Person/Admin";
 import { Assignment } from "./models/Assignment";
 import { Classroom } from "./models/Classroom";
@@ -20,10 +19,10 @@ import { NameSubjects } from "./enum/NameSubject";
    // Initialize school
   const mySchool = new School(
     "SCH001",
-    "Tech High School",
-    "1234 Elm Street",
+    "PNC School",
+    "1234 Sorla Street371",
     "contact@techhigh.edu",
-    "+1234567890"
+    "+855-123-4567"
   );
 
   // Create admin
@@ -57,18 +56,22 @@ import { NameSubjects } from "./enum/NameSubject";
   const timetable = new Timetable(NameSubjects.ComputerScience, [timetableEntry]);
   
   student.viewTimetable(timetable);
-  const studentTimetable = student.getTimetables(); // Fixed method name
+  const studentTimetable = student.getTimetables(); 
+  console.log(`================ Student Timetable =================`);
+  console.log('📚 Student Timetable:');
+  
   console.log(
-    `📅 Timetable: Subject: ${studentTimetable[0].timetable} ` +
-    `by teacher ${teacher.name} on ${timetableEntry.dayOfWeek} ` +
-    `at ${timetableEntry.time} in ${timetableEntry.room} ` +
+    `${studentTimetable[0].timetable} ` ,
+    `by teacher ${teacher.name} on ${timetableEntry.dayOfWeek} ` ,
+    `at ${timetableEntry.time} in ${timetableEntry.room} ` ,
     `for student in ${classroom.room}.\n`
   );
 
   // User Story 2: Teacher uploads study materials and assignment
+  console.log(`================ Teacher Uploads =================`);
   const material = new Material(
-    "OOP_C2_S2_Practices.pdf",
-    new Date("2025-05-30T08:42:00+07:00")
+        "             OOP_C2_S2_Practices.pdf",
+        new Date("2025-05-30T08:42:00+07:00")
   );
   teacher.uploadMaterial(material);
 
@@ -79,19 +82,26 @@ import { NameSubjects } from "./enum/NameSubject";
     new Date("2025-06-05T23:59:00+07:00"),
     100
   );
+  console.log('================ Teacher Assignment =================\n');
+  
   teacher.uploadAssignment(assignment);
-
+    console.log(`================ Student Grades =================\n`);
   // User Story 3: Student submits assignment and views grades
   student.submitAssignment(assignment, ["answers.pdf"], new Date("2025-05-30T08:42:00+07:00"));
   const submission = student.getSubmittedAssignments()[0];
-  submission.score = 85; // Simulated grading
+  submission.score = 85;
   submission.feedback = "Well done, but review question 3 for improvement.\n";
   const grades = student.getGrades();
   console.log(grades);
 
+console.log(`================ Admin Assigns Teacher to Subject =================\n`);
+
   // User Story 4: Admin assigns subjects and teachers to students
   admin.assignTeacherToSubject(teacher, subject, classroom);
-
+  
+  
+  console.log(`================ Student Exam Schedule and Results =================\n`);
+  
   // User Story 5: Student views exam schedule and results
   const exam = new Exam(
     1,
@@ -101,22 +111,31 @@ import { NameSubjects } from "./enum/NameSubject";
   );
   const exams = student.viewExamSchedule([exam]);
   console.log(
-    `Student ${student.name}'s exam schedule: ` +
-    `Exam ID ${exams[0].examId} on ${exams[0].examDate.toISOString()}`
+    `📆 Exam schedule: ` 
+     
   );
+  console.log(`           📝 Subject: ${exam.subject} \n` ,
+    `          📆 Exam Date:${exams[0].examDate.toLocaleDateString()} 
+           🏨 Students class: ${classroom.room}\n` );
   
-  const examResults = student.getExamResults([exam], [{ examId: 1, score: 90 }]);
-  console.log(`Student ${student.name}'s exam results:`, examResults);
+  
+  const examResults = student.getExamResults([exam], [{ examId: 1, score: 90}]);
+  console.log(`👩🏻‍🎓  Student ${student.name}'s exam results:`,examResults);
 
   // User Story 6: Student provides feedback
   const feedback = new Feedback(
     "Great class!",
     5,
     "I learned a lot about OOP.",
-    new Date("2025-05-30T08:42:00+07:00")
+    new Date("2025-05-30T08:42:00+07:00"),
+    // 'YEN YON' // Teacher's name
+    
   );
   student.giveFeedback(feedback);
   console.log(
-    `Student ${student.name} provided feedback: ${feedback.comment} ` +
+    `👩🏻‍🎓  Student ${student.name} provided feedback: ${feedback.comment} ` +
     `with rating ${feedback.rating}` 
   );
+
+
+  
