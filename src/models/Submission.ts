@@ -3,13 +3,13 @@ export class Submission {
         public submission: string,
         public submissionDate: Date,
         public files: string[],
-        public grade: number,
+        public score: number,
         public feedback: string
     ) {
         this.submission = submission;
         this.submissionDate = submissionDate;
         this.files = files;
-        this.grade = grade;
+        this.score = score;
         this.feedback = feedback;
     }
 }

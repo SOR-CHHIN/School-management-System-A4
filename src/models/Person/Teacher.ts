@@ -25,7 +25,7 @@ export class Teacher extends Person {
   // Upload study material (User Story 2)
   uploadMaterial(material: Material): void {
     this.materials.push(material);
-    console.log(`2.Teacher ${this.name} uploaded material:\n ${material.title} 
+    console.log(`🧑‍🏫 Teacher ${this.name} uploaded material:\n ${material.title} 
               Subject:${NameSubjects.ComputerScience}    
               On: ${new Date().toLocaleDateString()}  
               Time: ${new Date().toLocaleTimeString()} 
@@ -35,12 +35,12 @@ export class Teacher extends Person {
   // Upload assignment (User Story 2)
   uploadAssignment(assignment: Assignment): void {
     this.assignments.push(assignment);
-    console.log(`3. Teacher ${this.name} uploaded assignment:
-      Assignmet: ${assignment.title}
-      Deadline on: ${assignment.dueDate.toLocaleDateString()}
-      Upload on:  ${new Date().toLocaleDateString()}
-      Time: ${new Date().toLocaleTimeString()} 
-      Students:${GradeLevels.Year2} at PNC University\n`);
+    console.log(`🧑‍🏫 Teacher ${this.name} uploaded assignment:
+              Assignmet: ${assignment.title}
+              Deadline on: ${assignment.dueDate.toLocaleDateString()}
+              Upload on:  ${new Date().toLocaleDateString()}
+              Time: ${new Date().toLocaleTimeString()} 
+              Students:${GradeLevels.Year2} at PNC University\n`);
   }
 
   getUploadedMaterials(): Material[] {

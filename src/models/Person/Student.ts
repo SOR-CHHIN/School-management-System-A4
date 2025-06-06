@@ -6,71 +6,92 @@ import { Submission } from "../Submission";
 import { Timetable } from "../TimeTable";
 
 export class Student extends Person {
-    private viewedTimetables: Timetable[] = [];
-    private submittedAssignments: Submission[] = [];
-    private feedbacks: Feedback[] = [];
+ public viewedTimetables: Timetable[] = [];
+ public submittedAssignments: Submission[] = [];
+ public feedbacks: Feedback[] = [];
 
-    constructor(
-        id_number: string,
-        name: string,
-        email: string,
-        public enrolledDate: Date,
-        public currentGrade: string
-    ) {
-        super(id_number, name, email);
+  constructor(
+    idNumber: string,
+    name: string,
+    email: string,
+    public readonly enrolledDate: Date,
+    public readonly currentGrade: string
+  ) {
+    super(idNumber, name, email);
+  }
+
+  // User Story 3: Submit assignments
+  public submitAssignment(assignment: Assignment, files: string[], submissionDate: Date = new Date()): void {
+    if (!assignment || !files.length) {
+      throw new Error("Assignment and at least one file must be provided.");
     }
 
-    // // User Story 1: As a student, I want to view my class timetable
-    getStudentTimetable(): Timetable[] {
-        return this.viewedTimetables;
+    const submission = new Submission(
+      assignment.title,
+      submissionDate,
+      files,
+      0,
+      ""
+    );
+    this.submittedAssignments.push(submission);
+
+    console.log(
+      `👩🏻‍🎓 Student ${this.name}:\n` ,
+      `  Grade Level: ${this.currentGrade}\n` ,
+      `  Submitted assignment: ${assignment.title}\n` ,
+      `  Files: ${files.join(", ")}\n` +
+      `  On: ${submission.submissionDate.toLocaleDateString()} ` ,
+      `at ${submission.submissionDate.toLocaleTimeString()} \n`
+    );
+  }
+
+  // User Story 3: View grades for submitted assignments
+  public getGrades(): string {
+    if (this.submittedAssignments.length === 0) {
+      return `No grades available for ${this.name}.`;
     }
 
-    viewTimetable(timetable: Timetable): void {
-        this.viewedTimetables.push(timetable);
-    }
+    const gradesOutput = this.submittedAssignments.map((submission) => 
+      `- Assignment: ${submission.submission}\n` +
+      `  Grade: ${submission.score}\n` +
+      `  Feedback: ${submission.feedback || "No feedback provided yet"}`
+    ).join("\n");
 
-    // User Story 3: As a student, I want to submit my assignments and see my grades
-    submitAssignment(assignment: Assignment, files: string[]): void {
-        const submission = new Submission(
-            `${assignment.title} Submission`,
-            new Date("2025-05-30T08:42:00+07:00"),
-            files,
-            100,
-            "good"
-        );
-        this.submittedAssignments.push(submission);
-        console.log(`Student ${this.name} submitted assignment: ${assignment.title}`);
-    }
+    return `👩🏻‍🎓 Student ${this.name}'s Grades:\n${gradesOutput}`;
+  }
 
-    // User Story 3: Get grades for the student
-    getGrades(): { assignment: string, grade: number, feedback: string }[] {
-        return this.submittedAssignments.map(submission => ({
-            assignment: submission.submission,
-            grade: submission.grade,
-            feedback: submission.feedback
-        }));
-    }
+  // Other methods (unchanged)
+  public viewTimetable(timetable: Timetable): void {
+    this.viewedTimetables.push(timetable);
+  }
 
-    // User Story 5: As a student, I want to view my exam schedule and results
-    viewExamSchedule(exams: Exam[]): Exam[] {
-        return exams; // In a real system, this would filter exams relevant to the student
-    }
+  public getTimetables(): Timetable[] {
+    return this.viewedTimetables;
+  }
 
-    getExamResults(exams: Exam[], results: { examId: number, score: number }[]): { examId: number, score: number }[] {
-        return results.filter(result => exams.some(exam => exam.examId === result.examId));
-    }
+  public viewExamSchedule(exams: Exam[]): Exam[] {
+    return exams;
+  }
 
-    // User Story 6: As a student, I want to give feedback and ratings for subjects and teachers
-    giveFeedback(feedback: Feedback): void {
-        this.feedbacks.push(feedback);
-        console.log(`Student ${this.name} gave feedback: ${feedback.feedback}`);
-    }
+  public getExamResults(
+    exams: Exam[],
+    results: { examId: number; score: number }[]
+  ): { examId: number; score: number }[] {
+    return results.filter((result) =>
+      exams.some((exam) => exam.examId === result.examId)
+    );
+  }
 
-    getSubmittedAssignments(): Submission[] {
-        return this.submittedAssignments;
-    }
+  public giveFeedback(feedback: Feedback): void {
+    this.feedbacks.push(feedback);
+    console.log(`Student ${this.name} gave feedback: ${feedback.feedback}`);
+  }
 
-    getViewedTimetables(): Timetable[] {
-        return this.viewedTimetables;
-    }
+  public getSubmittedAssignments(): Submission[] {
+    return this.submittedAssignments;
+  }
+
+  public getFeedbacks(): Feedback[] {
+    return this.feedbacks;
+  }
 }
