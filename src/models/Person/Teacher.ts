@@ -1,12 +1,12 @@
 import { GradeLevels } from "../../enum/GradeLevel";
 import { NameSubjects } from "../../enum/NameSubject";
-import { Assignment } from "../Assignment";
-import { Classroom } from "../Classroom";
-import { Feedback } from "../Feedback";
-import { Grade } from "../Grade";
-import { Material } from "../Material";
+import { Assignment } from "../categories/Assignment";
+import { Classroom } from "../School/Classroom";
+import { Feedback } from "../categories/Feedback";
+import { Grade } from "../categories/Grade";
+import { Material } from "../categories/Material";
 import { Person } from "./Person";
-export { Subject } from "../Subject";
+export { Subject } from "../categories/Subject";
 export {Student} from "./Student";
 
 export class Teacher extends Person {

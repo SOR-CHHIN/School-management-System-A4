@@ -1,7 +1,7 @@
 
 import { Teacher } from '../../models/Person/Teacher';
 import { Student } from '../../models/Person/Student';
-import { Subject } from '../../models/categories/Subject';
+import { Subject } from '../categories/Subject';
 import { TimetableEntry } from '../categories/TimeTableEntry';
 
 export class Classroom {

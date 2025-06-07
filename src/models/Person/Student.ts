@@ -1,9 +1,9 @@
-import { Assignment } from "../Assignment";
-import { Exam } from "../Exam";
-import { Feedback } from "../Feedback";
+import { Assignment } from "../categories/Assignment";
+import { Exam } from "../categories/Exam";
+import { Feedback } from "../categories/Feedback";
 import { Person } from "./Person";
-import { Submission } from "../Submission";
-import { Timetable } from "../TimeTable";
+import { Submission } from "../categories/Submission";
+import { Timetable } from "../categories/TimeTable";
 import { Teacher } from "./Teacher";
 
 export class Student extends Person {

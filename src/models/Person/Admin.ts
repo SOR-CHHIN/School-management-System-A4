@@ -1,10 +1,10 @@
 import { Person } from "./Person";
 import { Student } from "./Student";
-import { Subject } from "../Subject";
+import { Subject } from "../categories/Subject";
 import { Teacher } from "./Teacher";
 import { NameSubjects } from "../../enum/NameSubject";
-import { TimetableEntry } from "../TimeTableEntry";
-import { Classroom } from "../Classroom";
+import { TimetableEntry } from "../categories/TimeTableEntry";
+import { Classroom } from "../School/Classroom";
 
 
 export class Admin extends Person {
