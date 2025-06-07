@@ -10,11 +10,11 @@ export class School {
   private timetables: Timetable[] = [];
 
   constructor(
-    public readonly id: string,
-    public readonly name: string,
-    public readonly address: string,
-    public readonly email: string,
-    public readonly phone: string
+   
+    public name: string,
+    public address: string,
+    public email: string,
+    public phone: string
   ) {}
 
   public addAdmin(admin: Admin): void {

@@ -18,7 +18,7 @@ import { NameSubjects } from "./enum/NameSubject";
   // Creating school instance
    // Initialize school
   const mySchool = new School(
-    "SCH001",
+  
     "PNC School",
     "1234 Sorla Street371",
     "contact@techhigh.edu",
