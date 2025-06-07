@@ -1,4 +1,4 @@
-import { TimetableEntry } from "./TimeTableEntry";
+import { TimetableEntry } from "../categories/TimeTableEntry";
 
 
 export class Timetable {

@@ -1,17 +1,17 @@
 
 import { Admin } from "./models/Person/Admin";
-import { Assignment } from "./models/Assignment";
-import { Classroom } from "./models/Classroom";
-import { Exam } from "./models/Exam";
-import { Feedback } from "./models/Feedback";
-import { Grade } from "./models/Grade";
-import { Material } from "./models/Material";
-import { School } from "./models/School";
+import { Assignment } from "./models/categories/Assignment";
+import { Classroom } from "./models/School/Classroom";
+import { Exam } from "./models/categories/Exam";
+import { Feedback } from "./models/categories/Feedback";
+import { Grade } from "./models/categories/Grade";
+import { Material } from "./models/categories/Material";
+import { School } from "./models/School/School";
 import { Student } from "./models/Person/Student";
-import { Subject } from "./models/Subject";
+import { Subject } from "./models/categories/Subject";
 import { Teacher } from "./models/Person/Teacher";
-import { Timetable } from "./models/TimeTable";
-import { TimetableEntry } from "./models/TimeTableEntry";
+import { Timetable } from "./models/categories/TimeTable";
+import { TimetableEntry } from "./models/categories/TimeTableEntry";
 import { NameSubjects } from "./enum/NameSubject";
 
 

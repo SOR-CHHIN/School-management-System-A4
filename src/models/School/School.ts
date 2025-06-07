@@ -1,7 +1,7 @@
-import { Admin } from "./Person/Admin";
-import { Teacher } from "./Person/Teacher";
-import { Student } from "./Person/Student";
-import { Timetable } from "./TimeTable";
+import { Admin } from "../Person/Admin";
+import { Teacher } from "../Person/Teacher";
+import { Student } from "../Person/Student";
+import { Timetable } from "../categories/TimeTable";
 
 export class School {
  public admins: Admin[] = [];

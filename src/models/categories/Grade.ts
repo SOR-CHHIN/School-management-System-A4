@@ -1,7 +1,7 @@
-import { LetterGrade } from "../enum/LetterGrade";
-import { NameSubjects } from "../enum/NameSubject";
-import { Student } from "./Person/Student";
-import { Subject } from "./Subject";
+import { LetterGrade } from "../../enum/LetterGrade";
+import { NameSubjects } from "../../enum/NameSubject";
+import { Student } from "../Person/Student";
+import { Subject } from "../categories/Subject";
 
 export class Grade  {
     constructor(

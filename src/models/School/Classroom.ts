@@ -1,8 +1,8 @@
 
-import { Teacher } from '../models/Person/Teacher';
-import { Student } from '../models/Person/Student';
-import { Subject } from '../models/Subject';
-import { TimetableEntry } from '../models/TimeTableEntry';
+import { Teacher } from '../../models/Person/Teacher';
+import { Student } from '../../models/Person/Student';
+import { Subject } from '../../models/categories/Subject';
+import { TimetableEntry } from '../categories/TimeTableEntry';
 
 export class Classroom {
     public room: string;
