@@ -4,10 +4,10 @@ import { Student } from "./Person/Student";
 import { Timetable } from "./TimeTable";
 
 export class School {
-  private admins: Admin[] = [];
-  private teachers: Teacher[] = [];
-  private students: Student[] = [];
-  private timetables: Timetable[] = [];
+ public admins: Admin[] = [];
+ public teachers: Teacher[] = [];
+ public students: Student[] = [];
+ public timetables: Timetable[] = [];
 
   constructor(
    
